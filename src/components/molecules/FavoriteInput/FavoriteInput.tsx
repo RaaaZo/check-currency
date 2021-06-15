@@ -55,6 +55,11 @@ const useStyles = makeStyles((theme: Theme) =>
       '& label': {
         fontWeight: theme.typography.fontWeightBold,
       },
+
+      [theme.breakpoints.up('sm')]: {
+        width: '40%',
+        maxWidth: '40rem',
+      },
     },
   })
 );

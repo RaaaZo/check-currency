@@ -1,4 +1,4 @@
-import FavoriteInput from 'components/molecules/FavoriteInput';
+import FavoriteInput from 'components/molecules/FavoriteInput/FavoriteInput';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';

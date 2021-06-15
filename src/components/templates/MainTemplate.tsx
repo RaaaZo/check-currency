@@ -1,7 +1,7 @@
-import ContentContainer from 'components/atoms/ContentContainer';
-import BottomNavigation from 'components/molecules/BottomNavigation';
-import Navigation from 'components/organisms/Navigation';
-import TopDrawer from 'components/organisms/TopDrawer';
+import ContentContainer from 'components/atoms/ContentContainer/ContentContainer';
+import BottomNavigation from 'components/molecules/BottomNavigation/BottomNavigation';
+import Navigation from 'components/organisms/Navigation/Navigation';
+import TopDrawer from 'components/organisms/TopDrawer/TopDrawer';
 
 const MainTemplate: React.FC = ({ children }) => {
   return (

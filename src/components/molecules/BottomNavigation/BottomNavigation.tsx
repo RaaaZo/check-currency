@@ -5,6 +5,28 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import EuroIcon from '@material-ui/icons/Euro';
 import { useHistory } from 'react-router-dom';
 
+const BottomNavigation = () => {
+  const classes = useStyles();
+  const { push } = useHistory();
+
+  return (
+    <Navigation showLabels className={classes.wrapper}>
+      <BottomNavigationAction
+        onClick={() => push('/')}
+        label='All'
+        icon={<EuroIcon />}
+        className={classes.button}
+      />
+      <BottomNavigationAction
+        onClick={() => push('/favorite')}
+        label='Favorite'
+        icon={<FavoriteBorderIcon />}
+        className={classes.button}
+      />
+    </Navigation>
+  );
+};
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     wrapper: {
@@ -30,27 +52,5 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
-
-const BottomNavigation = () => {
-  const classes = useStyles();
-  const { push } = useHistory();
-
-  return (
-    <Navigation showLabels className={classes.wrapper}>
-      <BottomNavigationAction
-        onClick={() => push('/')}
-        label='All'
-        icon={<EuroIcon />}
-        className={classes.button}
-      />
-      <BottomNavigationAction
-        onClick={() => push('/favorite')}
-        label='Favorite'
-        icon={<FavoriteBorderIcon />}
-        className={classes.button}
-      />
-    </Navigation>
-  );
-};
 
 export default BottomNavigation;
