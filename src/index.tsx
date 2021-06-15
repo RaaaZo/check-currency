@@ -1,12 +1,15 @@
+import Root from 'views/Root';
+import reportWebVitals from './reportWebVitals';
+import AllProviders from 'providers/AllProviders';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AllProviders>
+      <Root />
+    </AllProviders>
   </React.StrictMode>,
   document.getElementById('root')
 );
