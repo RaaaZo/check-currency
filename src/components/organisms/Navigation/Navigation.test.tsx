@@ -10,8 +10,8 @@ describe('Navigation', () => {
   test('should renders without errors', () => {
     render(<Navigation />);
 
-    screen.getByText(/all currencies/i);
-    screen.getByText(/favorite currencies/i);
+    screen.getByText(/ulubione/i);
+    screen.getByText(/popularne/i);
     screen.getByText(/check currency/i);
   });
   test('should change location to /favorite after click Favorite Currencies button', () => {
@@ -23,9 +23,9 @@ describe('Navigation', () => {
       </Router>
     );
 
-    const link = screen.getByText(/favorite currencies/i);
+    const link = screen.getByText(/ulubione/i);
     expect(history.location.pathname).toBe('/');
     userEvent.click(link);
-    expect(history.location.pathname).toBe('/favorite');
+    expect(history.location.pathname).toBe('/ulubione');
   });
 });

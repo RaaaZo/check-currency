@@ -4,9 +4,11 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     wrapper: {
       marginTop: 130,
+      marginBottom: 60,
 
       [theme.breakpoints.up('md')]: {
         marginLeft: 240,
+        marginBottom: 0,
       },
     },
   })

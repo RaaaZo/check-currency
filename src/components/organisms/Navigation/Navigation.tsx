@@ -34,10 +34,10 @@ const Navigation = () => {
       </Grid>
 
       <Link exact className={classes.link} component={NavLink} to='/'>
-        All Currencies
+        Popularne Waluty
       </Link>
-      <Link className={classes.link} component={NavLink} to='/favorite'>
-        Favorite Currencies
+      <Link className={classes.link} component={NavLink} to='/ulubione'>
+        Ulubione Waluty
       </Link>
     </Drawer>
   );

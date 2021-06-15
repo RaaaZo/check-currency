@@ -26,7 +26,7 @@ const FavoriteInput = () => {
         className={classes.textField}
         color='secondary'
         variant='filled'
-        label='Currency'
+        label='Waluty'
         placeholder='USD, PLN, EUR...'
         size='small'
         value={inputValue}
@@ -34,7 +34,7 @@ const FavoriteInput = () => {
       />
 
       <Button size='large' variant='contained' color='secondary'>
-        Add
+        Dodaj
       </Button>
     </Grid>
   );

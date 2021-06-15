@@ -1,6 +1,6 @@
 import FavoriteView from './FavoriteView';
 import MainTemplate from 'components/templates/MainTemplate';
-import AllCurrencyView from './AllCurrencyView';
+import PopularCurrencyView from './PopularCurrencyView';
 
 import { Route, Switch } from 'react-router-dom';
 
@@ -9,9 +9,9 @@ const Root = () => {
     <MainTemplate>
       <Switch>
         <Route exact path='/'>
-          <AllCurrencyView />
+          <PopularCurrencyView />
         </Route>
-        <Route path='/favorite'>
+        <Route path='/ulubione'>
           <FavoriteView />
         </Route>
       </Switch>

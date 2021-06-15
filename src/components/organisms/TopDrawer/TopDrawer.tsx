@@ -23,7 +23,7 @@ const TopDrawer = () => {
           component='h2'
           display='block'
         >
-          Add Currency To Favorite
+          Dodaj Walutę Do Ulubionych
         </Typography>
 
         <FavoriteInput />

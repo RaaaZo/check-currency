@@ -15,8 +15,8 @@ describe('BottomNavigation', () => {
       </Router>
     );
 
-    screen.getByText(/all/i);
-    screen.getByText(/favorite/i);
+    screen.getByText(/popularne/i);
+    screen.getByText(/ulubione/i);
   });
 
   test('should push to /favorite location after click on button', () => {
@@ -27,9 +27,9 @@ describe('BottomNavigation', () => {
       </Router>
     );
 
-    const button = screen.getByText(/favorite/i);
+    const button = screen.getByText(/ulubione/i);
     expect(history.location.pathname).toBe('/');
     userEvent.click(button);
-    expect(history.location.pathname).toMatch(/favorite/i);
+    expect(history.location.pathname).toMatch(/ulubione/i);
   });
 });

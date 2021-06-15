@@ -7,8 +7,8 @@ describe('FavoriteInput', () => {
   test('should renders the component without errors', () => {
     render(<FavoriteInput />);
 
-    screen.getByText(/currency/i);
-    screen.getByText(/add/i);
+    screen.getByText(/waluty/i);
+    screen.getByText(/dodaj/i);
   });
   test('should have provided lowercase value in input element', () => {
     render(<FavoriteInput />);

@@ -1,9 +1,10 @@
+import { useHistory } from 'react-router-dom';
+
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Navigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import EuroIcon from '@material-ui/icons/Euro';
-import { useHistory } from 'react-router-dom';
+import WhatshotOutlinedIcon from '@material-ui/icons/WhatshotOutlined';
 
 const BottomNavigation = () => {
   const classes = useStyles();
@@ -13,13 +14,13 @@ const BottomNavigation = () => {
     <Navigation showLabels className={classes.wrapper}>
       <BottomNavigationAction
         onClick={() => push('/')}
-        label='All'
-        icon={<EuroIcon />}
+        label='Popularne'
+        icon={<WhatshotOutlinedIcon />}
         className={classes.button}
       />
       <BottomNavigationAction
-        onClick={() => push('/favorite')}
-        label='Favorite'
+        onClick={() => push('/ulubione')}
+        label='Ulubione'
         icon={<FavoriteBorderIcon />}
         className={classes.button}
       />

@@ -5,8 +5,8 @@ describe('TopDrawer', () => {
   test('should renders the component without errors', () => {
     render(<TopDrawer />);
 
-    screen.getByText(/add currency/i);
-    screen.getByText('Add');
+    screen.getByText(/dodaj walutę/i);
+    screen.getByText('Dodaj');
     screen.getByPlaceholderText(/pln/i);
   });
 });

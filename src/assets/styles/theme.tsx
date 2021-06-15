@@ -9,7 +9,6 @@ export const theme = createMuiTheme({
         },
         body: {
           fontSize: '1.6rem',
-          height: '200vh',
         },
       },
     },
