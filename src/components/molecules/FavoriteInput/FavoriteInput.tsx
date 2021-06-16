@@ -42,7 +42,7 @@ const FavoriteInput = () => {
           className={classes.textField}
           color='secondary'
           variant='filled'
-          label='Waluty'
+          label='Kod Waluty'
           placeholder='USD, EUR...'
           size='small'
           value={inputValue}

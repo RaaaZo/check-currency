@@ -9,7 +9,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 const AllProviders: React.FC = ({ children }) => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
