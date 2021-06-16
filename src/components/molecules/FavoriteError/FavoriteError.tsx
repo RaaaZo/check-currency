@@ -1,8 +1,9 @@
 import { Link as RouterLink } from 'react-router-dom';
+
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
 const FavoriteError = () => {
   const classes = useStyles();

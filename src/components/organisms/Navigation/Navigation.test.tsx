@@ -1,10 +1,10 @@
 import { render, screen } from 'helpers/test-utils';
-import Navigation from './Navigation';
-
 import { createMemoryHistory } from 'history';
-
 import { Router } from 'react-router-dom';
+
 import userEvent from '@testing-library/user-event';
+
+import Navigation from './Navigation';
 
 describe('Navigation', () => {
   test('should renders without errors', () => {

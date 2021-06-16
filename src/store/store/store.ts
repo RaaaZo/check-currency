@@ -1,6 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit';
 import currenciesReducer from 'store/reducers/currencies';
 import favoritesReducer from 'store/reducers/favorites';
+
+import { configureStore } from '@reduxjs/toolkit';
 
 export const store = configureStore({
   reducer: {

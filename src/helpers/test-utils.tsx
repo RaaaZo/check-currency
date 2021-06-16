@@ -1,14 +1,18 @@
 import { theme } from 'assets/styles/theme';
-
 import React, { FC, ReactElement } from 'react';
-import { render, RenderOptions } from '@testing-library/react';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { store } from 'store/store/store';
+
+import { ThemeProvider } from '@material-ui/core/styles';
+import { render, RenderOptions } from '@testing-library/react';
 
 const AllTheProviders: FC = ({ children }) => {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      </Provider>
     </BrowserRouter>
   );
 };

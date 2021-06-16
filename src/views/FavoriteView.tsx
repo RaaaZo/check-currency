@@ -1,13 +1,13 @@
-import ListItem from 'components/organisms/ListItem/ListItem';
 import ContentHeader from 'components/molecules/ContentHeader/ContentHeader';
 import FavoriteError from 'components/molecules/FavoriteError/FavoriteError';
+import ListItem from 'components/organisms/ListItem/ListItem';
 import { useAppSelector } from 'hooks/useRedux';
 
 import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
-import makeStyles from '@material-ui/core/styles/makeStyles';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import createStyles from '@material-ui/core/styles/createStyles';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 
 const FavoriteView = () => {
   const classes = useStyles();
@@ -23,11 +23,9 @@ const FavoriteView = () => {
             <FavoriteError />
           ) : (
             <List className={classes.list}>
-              {favorites.map(({ mid, ask, bid, code, currency }) => (
+              {favorites.map(({ mid, code, currency }) => (
                 <ListItem
                   mid={mid}
-                  ask={ask}
-                  bid={bid}
                   code={code}
                   currency={currency}
                   key={currency}

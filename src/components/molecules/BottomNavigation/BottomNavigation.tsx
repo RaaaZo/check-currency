@@ -1,8 +1,8 @@
 import { useHistory } from 'react-router-dom';
 
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Navigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import WhatshotOutlinedIcon from '@material-ui/icons/WhatshotOutlined';
 

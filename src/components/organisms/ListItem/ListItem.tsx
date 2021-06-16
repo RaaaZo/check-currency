@@ -1,38 +1,40 @@
 import ListItemText from 'components/molecules/ListItemText/ListItemText';
+import { useModal } from 'hooks/useModal';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
+import { addToFavorites, getCurrencyCode } from 'store/reducers/favorites';
 
 import ListItemMUI from '@material-ui/core/ListItem';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { makeStyles } from '@material-ui/core/styles';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import createStyles from '@material-ui/core/styles/createStyles';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import { addToFavorites, removeFromFavorites } from 'store/reducers/favorites';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 interface Props {
-  ask?: number;
-  bid?: number;
-  mid?: number;
+  mid: number;
   currency: string;
   code: string;
 }
 
-const ListItem: React.FC<Props> = ({ ask, bid, currency, code, mid }) => {
+const ListItem: React.FC<Props> = ({ currency, code, mid }) => {
   const classes = useStyles();
   const dispatch = useAppDispatch();
   const favorites = useAppSelector((state) => state.favorites.favorites);
+  const { openModal } = useModal();
 
-  const midRounded = mid
-    ? Math.round(mid * 100) / 100
-    : Math.round(((ask! + bid!) / 2) * 100) / 100;
+  const midRounded = `${Math.round(mid * 100) / 100} PLN`;
+
   const uppercaseCurrency = currency.toUpperCase();
 
   const isFavorite = () => favorites.find((item) => item.code === code);
 
   const addToFavoritesHandler = () =>
-    dispatch(addToFavorites({ code, currency, ask, bid, mid }));
+    dispatch(addToFavorites({ code, currency, mid }));
 
-  const removeFromFavoritesHandler = () => dispatch(removeFromFavorites(code));
+  const openDeleteModal = () => {
+    dispatch(getCurrencyCode(code));
+    openModal();
+  };
 
   return (
     <>
@@ -68,7 +70,7 @@ const ListItem: React.FC<Props> = ({ ask, bid, currency, code, mid }) => {
             isFavorite() ? (
               <FavoriteIcon
                 className={classes.cursor}
-                onClick={removeFromFavoritesHandler}
+                onClick={openDeleteModal}
                 color='secondary'
               />
             ) : (

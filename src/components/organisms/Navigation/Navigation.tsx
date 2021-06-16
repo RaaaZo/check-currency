@@ -1,9 +1,10 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { Link as RouterLink, NavLink } from 'react-router-dom';
+
 import Drawer from '@material-ui/core/Drawer';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { NavLink, Link as RouterLink } from 'react-router-dom';
 
 const Navigation = () => {
   const classes = useStyles();

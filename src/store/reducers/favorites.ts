@@ -1,18 +1,20 @@
+import axios from 'axios';
 import { CurrencyInterface, GetCurrencyByCode } from 'types';
 
-import axios from 'axios';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface FavoritesInitialStateInterface {
   favorites: CurrencyInterface[];
+  newestCode: string;
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
 }
 
 const initialState: FavoritesInitialStateInterface = {
   favorites: [],
+  newestCode: '',
   status: 'idle',
-  error: null,
+  error: '',
 };
 
 export const fetchCurrencyByCode = createAsyncThunk(
@@ -36,6 +38,12 @@ const favorites = createSlice({
   name: 'currencies',
   initialState,
   reducers: {
+    clearError: (state) => {
+      state.error = '';
+    },
+    getCurrencyCode: (state, action: PayloadAction<string>) => {
+      state.newestCode = action.payload;
+    },
     addToFavorites: (state, action: PayloadAction<CurrencyInterface>) => {
       const isFavorite = state.favorites.find(
         (item) => item.code === action.payload.code
@@ -44,9 +52,9 @@ const favorites = createSlice({
         state.favorites.push(action.payload);
       }
     },
-    removeFromFavorites: (state, action: PayloadAction<string>) => {
+    removeFromFavorites: (state) => {
       const favorites = state.favorites.filter(
-        (item) => item.code !== action.payload
+        (item) => item.code !== state.newestCode
       );
       state.favorites = favorites;
     },
@@ -75,7 +83,12 @@ const favorites = createSlice({
   },
 });
 
-export const { addToFavorites, removeFromFavorites, removeAllFromFavorites } =
-  favorites.actions;
+export const {
+  addToFavorites,
+  removeFromFavorites,
+  removeAllFromFavorites,
+  getCurrencyCode,
+  clearError,
+} = favorites.actions;
 
 export default favorites.reducer;

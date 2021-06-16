@@ -6,9 +6,7 @@ export interface MenuContextInterface {
 export interface CurrencyInterface {
   currency: string;
   code: string;
-  bid?: number;
-  ask?: number;
-  mid?: number;
+  mid: number;
 }
 
 export interface GetCurrenciesInterface {
@@ -27,4 +25,12 @@ export interface GetCurrencyByCode {
     mid: number;
     no: string;
   }[];
+}
+
+export interface ModalContextInterface {
+  isOpen: boolean;
+  isRemoveAll: boolean;
+  setIsRemoveAll: React.Dispatch<React.SetStateAction<boolean>>;
+  openModal: () => void;
+  closeModal: () => void;
 }

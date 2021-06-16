@@ -1,10 +1,11 @@
 import { theme } from 'assets/styles/theme';
+import { ModalProvider } from 'hooks/useModal';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { store } from 'store/store/store';
 
 import { ThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store } from 'store/store/store';
 
 const AllProviders: React.FC = ({ children }) => {
   return (
@@ -12,7 +13,7 @@ const AllProviders: React.FC = ({ children }) => {
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          {children}
+          <ModalProvider>{children}</ModalProvider>
         </ThemeProvider>
       </Provider>
     </Router>

@@ -1,20 +1,21 @@
-import ContentHeader from 'components/molecules/ContentHeader/ContentHeader';
-import ListItem from 'components/organisms/ListItem/ListItem';
 import Loader from 'components/atoms/Loader/Loader';
+import ContentHeader from 'components/molecules/ContentHeader/ContentHeader';
+import FetchError from 'components/molecules/FetchError/FetchError';
+import ListItem from 'components/organisms/ListItem/ListItem';
 import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
+import { useEffect } from 'react';
 import { fetchCurrencies } from 'store/reducers/currencies';
 
-import { useEffect } from 'react';
-
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 const PopularCurrencyView = () => {
   const classes = useStyles();
-  const { currencies, status, effectiveDate } = useAppSelector(
+  const { currencies, status, effectiveDate, error } = useAppSelector(
     (state) => state.currencies
   );
+
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -23,31 +24,34 @@ const PopularCurrencyView = () => {
 
   if (status === 'loading' || status === 'idle') {
     return <Loader />;
-  } else if (status === 'failed') {
-    return <div>Error</div>;
   }
 
   return (
     <>
       <Grid className={classes.wrapper} container>
-        <ContentHeader
-          effectiveDate={effectiveDate}
-          header='Najpopularniejsze kursy walut'
-        />
+        {error ? (
+          <FetchError message={error} />
+        ) : (
+          <>
+            <ContentHeader
+              effectiveDate={effectiveDate}
+              header='Najpopularniejsze kursy walut'
+            />
 
-        <Grid item xs={12}>
-          <List className={classes.list}>
-            {currencies.map(({ ask, bid, code, currency }) => (
-              <ListItem
-                ask={ask}
-                bid={bid}
-                code={code}
-                currency={currency}
-                key={currency}
-              />
-            ))}
-          </List>
-        </Grid>
+            <Grid item xs={12}>
+              <List className={classes.list}>
+                {currencies.map(({ mid, code, currency }) => (
+                  <ListItem
+                    mid={mid}
+                    code={code}
+                    currency={currency}
+                    key={currency}
+                  />
+                ))}
+              </List>
+            </Grid>
+          </>
+        )}
       </Grid>
     </>
   );

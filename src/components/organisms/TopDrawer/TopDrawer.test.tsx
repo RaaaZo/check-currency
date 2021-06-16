@@ -1,4 +1,5 @@
 import { render, screen } from 'helpers/test-utils';
+
 import TopDrawer from './TopDrawer';
 
 describe('TopDrawer', () => {
@@ -7,6 +8,6 @@ describe('TopDrawer', () => {
 
     screen.getByText(/dodaj walutę/i);
     screen.getByText('Dodaj');
-    screen.getByPlaceholderText(/pln/i);
+    screen.getByPlaceholderText(/usd/i);
   });
 });

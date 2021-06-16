@@ -1,10 +1,11 @@
+import { useModal } from 'hooks/useModal';
+import { useAppSelector } from 'hooks/useRedux';
+
 import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
-import { removeAllFromFavorites } from 'store/reducers/favorites';
 
 interface Props {
   header: string;
@@ -13,8 +14,16 @@ interface Props {
 
 const ContentHeader: React.FC<Props> = ({ effectiveDate, header }) => {
   const classes = useStyles();
-  const dispatch = useAppDispatch();
+
   const favorites = useAppSelector((state) => state.favorites.favorites);
+  const { openModal, setIsRemoveAll } = useModal();
+
+  const openDeleteAllModal = () => {
+    if (favorites.length === 0) return;
+    setIsRemoveAll(true);
+    openModal();
+  };
+
   return (
     <Grid
       container
@@ -42,7 +51,7 @@ const ContentHeader: React.FC<Props> = ({ effectiveDate, header }) => {
           className={classes.badge}
           color='secondary'
           showZero
-          onClick={() => dispatch(removeAllFromFavorites())}
+          onClick={openDeleteAllModal}
         >
           <Button className={classes.button}>Usuń wszystkie</Button>
         </Badge>

@@ -18,12 +18,6 @@ const Loader = () => {
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    wrapper: {
-      padding: '3rem 0 0 0',
-    },
-    list: {
-      height: '100%',
-    },
     loaderWrapper: {
       position: 'fixed',
       width: '100%',

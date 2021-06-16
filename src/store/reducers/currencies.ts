@@ -1,6 +1,7 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { CurrencyInterface, GetCurrenciesInterface } from 'types';
+
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 interface CurrenciesInitialStateInterface {
   currencies: CurrencyInterface[];
@@ -20,8 +21,9 @@ export const fetchCurrencies = createAsyncThunk(
   'currencies/fetchCurrencies',
   async () => {
     const response = await axios.get<GetCurrenciesInterface[]>(
-      `${process.env.REACT_APP_NBP_API}/tables/c?format=json`
+      `${process.env.REACT_APP_NBP_API}/tables/a?format=json`
     );
+
     return response.data[0];
   }
 );

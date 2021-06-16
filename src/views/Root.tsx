@@ -1,8 +1,8 @@
-import FavoriteView from './FavoriteView';
 import MainTemplate from 'components/templates/MainTemplate';
-import PopularCurrencyView from './PopularCurrencyView';
-
 import { Route, Switch } from 'react-router-dom';
+
+import FavoriteView from './FavoriteView';
+import PopularCurrencyView from './PopularCurrencyView';
 
 const Root = () => {
   return (

@@ -1,12 +1,10 @@
-import Grid, { GridSize } from '@material-ui/core/Grid';
-import { GridDirection } from '@material-ui/core/Grid';
-import { createStyles, Theme } from '@material-ui/core/styles';
-import { makeStyles } from '@material-ui/core/styles';
+import Grid, { GridDirection, GridSize } from '@material-ui/core/Grid';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Tooltip, { TooltipProps } from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 
 interface Props {
-  xs: GridSize;
+  xs?: GridSize;
   sm?: GridSize;
   md?: GridSize;
   placement: TooltipProps['placement'];

@@ -1,10 +1,10 @@
-import BottomNavigation from './BottomNavigation';
 import { render, screen } from 'helpers/test-utils';
-
 import { createMemoryHistory } from 'history';
+import { Router } from 'react-router-dom';
 
 import userEvent from '@testing-library/user-event';
-import { Router } from 'react-router-dom';
+
+import BottomNavigation from './BottomNavigation';
 
 describe('BottomNavigation', () => {
   test('should renders without error', () => {

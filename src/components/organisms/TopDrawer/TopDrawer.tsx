@@ -1,9 +1,9 @@
 import FavoriteInput from 'components/molecules/FavoriteInput/FavoriteInput';
 
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
+import Grid from '@material-ui/core/Grid';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
 const TopDrawer = () => {
   const classes = useStyles();
