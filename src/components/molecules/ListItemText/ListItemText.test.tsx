@@ -1,5 +1,6 @@
-import userEvent from '@testing-library/user-event';
 import { render, screen, waitFor } from 'helpers/test-utils';
+
+import userEvent from '@testing-library/user-event';
 
 import ListItemText from './ListItemText';
 
