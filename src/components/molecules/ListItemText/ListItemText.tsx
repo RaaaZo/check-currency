@@ -1,7 +1,8 @@
-import { GridDirection } from '@material-ui/core';
-import { TooltipProps } from '@material-ui/core';
 import Grid, { GridSize } from '@material-ui/core/Grid';
-import Tooltip from '@material-ui/core/Tooltip';
+import { GridDirection } from '@material-ui/core/Grid';
+import { createStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import Tooltip, { TooltipProps } from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 
 interface Props {
@@ -27,6 +28,7 @@ const ListItemText: React.FC<Props> = ({
   direction,
   secondTitle,
 }) => {
+  const classes = useStyles();
   return (
     <Grid
       container
@@ -38,13 +40,21 @@ const ListItemText: React.FC<Props> = ({
       justify='center'
     >
       <Tooltip placement={placement} arrow title={title}>
-        <Typography variant='button' component='h6'>
+        <Typography
+          className={classes.typography}
+          variant='button'
+          component='h6'
+        >
           {text}
         </Typography>
       </Tooltip>
       {secondTitle && (
         <Tooltip title={secondTitle} placement={placement} arrow>
-          <Typography variant='button' component='h6'>
+          <Typography
+            className={classes.typography}
+            variant='button'
+            component='h6'
+          >
             {secondText}
           </Typography>
         </Tooltip>
@@ -52,5 +62,13 @@ const ListItemText: React.FC<Props> = ({
     </Grid>
   );
 };
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    typography: {
+      cursor: 'default',
+    },
+  })
+);
 
 export default ListItemText;

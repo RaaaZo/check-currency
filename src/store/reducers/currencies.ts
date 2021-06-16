@@ -41,9 +41,9 @@ const currencies = createSlice({
     });
     builder.addCase(fetchCurrencies.rejected, (state, action) => {
       state.status = 'failed';
+      state.error = 'Pobieranie danych nie powiodło się, spróbuj ponownie';
     });
   },
 });
 
-export const {} = currencies.actions;
 export default currencies.reducer;

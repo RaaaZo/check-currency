@@ -1,14 +1,27 @@
+import { fetchCurrencyByCode } from 'store/reducers/favorites';
+import { useAppDispatch, useAppSelector } from 'hooks/useRedux';
+
+import React, { useState } from 'react';
+
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { useState } from 'react';
-import React from 'react';
+import { CircularProgress } from '@material-ui/core';
 
 const FavoriteInput = () => {
   const classes = useStyles();
+  const dispatch = useAppDispatch();
+  const { status, error } = useAppSelector((state) => state.favorites);
 
   const [inputValue, setInputValue] = useState<string>('');
+  const inputValueLength = inputValue.length;
+
+  const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    dispatch(fetchCurrencyByCode(inputValue));
+    setInputValue('');
+  };
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -22,26 +35,47 @@ const FavoriteInput = () => {
       justify='center'
       alignItems='center'
     >
-      <TextField
-        className={classes.textField}
-        color='secondary'
-        variant='filled'
-        label='Waluty'
-        placeholder='USD, PLN, EUR...'
-        size='small'
-        value={inputValue}
-        onChange={changeHandler}
-      />
+      <form className={classes.form} onSubmit={onSubmitHandler}>
+        <TextField
+          className={classes.textField}
+          color='secondary'
+          variant='filled'
+          label='Waluty'
+          placeholder='USD, PLN, EUR...'
+          size='small'
+          value={inputValue}
+          onChange={changeHandler}
+        />
 
-      <Button size='large' variant='contained' color='secondary'>
-        Dodaj
-      </Button>
+        <Button
+          className={classes.button}
+          disabled={inputValueLength !== 3 || status === 'loading'}
+          type='submit'
+          size='large'
+          variant='contained'
+          color='secondary'
+        >
+          {status === 'loading' ? (
+            <CircularProgress color='secondary' size={30} />
+          ) : (
+            'Dodaj'
+          )}
+        </Button>
+      </form>
     </Grid>
   );
 };
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    button: {
+      minWidth: '10rem',
+    },
+    form: {
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+    },
     innerWrapper: {
       width: '100%',
     },

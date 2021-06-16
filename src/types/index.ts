@@ -6,8 +6,9 @@ export interface MenuContextInterface {
 export interface CurrencyInterface {
   currency: string;
   code: string;
-  bid: number;
-  ask: number;
+  bid?: number;
+  ask?: number;
+  mid?: number;
 }
 
 export interface GetCurrenciesInterface {
@@ -15,4 +16,15 @@ export interface GetCurrenciesInterface {
   no: string;
   effectiveDate: string;
   rates: CurrencyInterface[];
+}
+
+export interface GetCurrencyByCode {
+  code: string;
+  currency: string;
+  table: string;
+  rates: {
+    effectiveDate: string;
+    mid: number;
+    no: string;
+  }[];
 }

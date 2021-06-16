@@ -76,11 +76,11 @@ const useStyles = makeStyles((theme: Theme) =>
       color: theme.palette.common.black,
       fontSize: '2rem',
       textAlign: 'right',
-      textDecoration: 'none',
       transition: 'color 0.3s ease-in-out',
 
       '&:hover': {
         color: theme.palette.secondary.main,
+        textDecoration: 'none',
       },
       '&.active': {
         color: theme.palette.secondary.main,
